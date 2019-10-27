@@ -73,17 +73,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="services.php">Hostels</a>
+							<a class="nav-link" href="services.php">Blocks</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
 
 						<li class="dropdown nav-item">
-							<!--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu agile_short_dropdown">
 								<li>
 									<a href="profile.php">My Profile</a>
-								</li>-->
+								</li>
 								<li>
 									<a href="includes/logout.inc.php" class="nav-link">Logout</a>
 								</li>
@@ -104,10 +108,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Info</span></a>
 				</li>
 				<li>
-					<a href="#"><i class="fa fa-folder" aria-hidden="true"></i><span>Hostel</span></a>
+					<a href="#"><i class="fa fa-folder" aria-hidden="true"></i><span>Block INFO</span></a>
 				</li>
 				<li>
-					<a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
+					<a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span> HM's Contact No</span></a>
 				</li>
 			</ul>
 		</div>
@@ -163,13 +167,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h3><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></h3>
 							<h5>Student</h5>
 							<ul class="address">
+
+								<li>
+									<ul class="address-text">
+										<li><b>PAYMENT STATUS </b></li>
+										<?php
+											$StudentId = $_SESSION['roll'];
+											if($StudentId == NULL){
+												$Paymentstatus = 'Not Done';
+
+											}
+											else {
+												$sql = "SELECT * FROM Payment WHERE Student_id = '$StudentId'";
+												$result = mysqli_query($conn, $sql);
+												if($row = mysqli_fetch_assoc($result)){
+													$Paymenttrue = $row['Status'];
+													if($Paymenttrue==1){
+														$Paymentstatus='Done';
+													}
+													else{
+														$Paymentstatus='Not Done';
+													}
+												}
+												else {
+													echo "<script type='text/javascript'>alert('Foreign Key Error-hostenName!!')</script>";
+												}
+											}
+										 ?>
+
+
+										<li>: <?php echo $Paymentstatus; ?></li>
+									</ul>
+								</li>
+
 								<li>
 									<ul class="address-text">
 										<li><b>HOSTEL </b></li>
 										<?php
 											$hostelId = $_SESSION['hostel_id'];
 											if($hostelId == NULL){
-												$hostelName = 'None';
+												$hostelName = 'Not Allocated';
 											}
 											else {
 												$sql = "SELECT * FROM Hostel WHERE Hostel_id = '$hostelId'";
@@ -240,7 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									}
 								 ?>
 								<h3><?php echo $hmfname." ".$hmlname; ?></h3>
-								<h5>Admin</h5>
+								<h5>Hostel Manager</h5>
 								<ul class="address">
 									<li>
 										<ul class="address-text">

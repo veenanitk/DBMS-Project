@@ -137,7 +137,7 @@ session_start();
     <thead>
       <tr>
         <th>Student Name</th>
-        <th>Student ID</th>
+        <th>Roll No</th>
         <th>Contact Number</th>
         <th>Hostel</th>
         <th>Room Number</th>
@@ -190,7 +190,7 @@ session_start();
     <thead>
       <tr>
         <th>Student Name</th>
-        <th>Student ID</th>
+        <th>Roll No</th>
         <th>Contact Number</th>
         <th>Hostel</th>
         <th>Room Number</th>
@@ -227,7 +227,7 @@ session_start();
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://www.nitc.ac.in/" target="_blank">NITK <span class="display"> SURATHKAL</span></a>
+			<a class="navbar-brand" href="http://www.nitk.ac.in/" target="_blank">NITK <span class="display"> SURATHKAL</span></a>
 		</div>
 		<div class="footer-grid">
 			<div class="list-footer">

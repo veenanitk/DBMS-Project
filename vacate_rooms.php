@@ -59,36 +59,37 @@ session_start();
 							<a class="nav-link" href="home_manager.php">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" href="allocate_room.php">Allocate Room</a>
-					<li class="dropdown nav-item">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu agile_short_dropdown">
-							<li>
-								<a href="allocated_rooms.php">Allocated Rooms</a>
-							</li>
-							<li>
-								<a href="empty_rooms.php">Empty Rooms</a>
-							</li>
-							<li>
-								<a href="vacate_rooms.php">Vacate Rooms</a>
-							</li>
-						</ul>
-					</li>
-					<li class="dropdown nav-item">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu agile_short_dropdown">
-							<li>
-								<a href="profile.php">My Profile</a>
-							</li>
-							<li>
-								<a href="includes/logout.inc.php">Logout</a>
-							</li>
-						</ul>
-					</li>
+							<a class="nav-link" href="allocate_room.php">Allocate Room</a>
+						</li>
+						<li class="dropdown nav-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu agile_short_dropdown">
+								<li>
+									<a href="allocated_rooms.php">Allocated Rooms</a>
+								</li>
+								<li>
+									<a href="empty_rooms.php">Empty Rooms</a>
+								</li>
+								<li>
+									<a href="vacate_rooms.php">Vacate Rooms</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown nav-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu agile_short_dropdown">
+								<li>
+									<a href="admin/manager_profile.php">My Profile</a>
+								</li>
+								<li>
+									<a href="includes/logout.inc.php">Logout</a>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</nav>

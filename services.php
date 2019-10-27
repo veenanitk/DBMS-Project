@@ -65,7 +65,10 @@
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href="services.php">Hostels</a>
+							<a class="nav-link" href="services.php">Blocks</a>
+						</li>						
+						<li class="nav-item">
+							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
 						<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
@@ -90,81 +93,7 @@
 </div>
 <!-- //banner -->
 
-<!-- services -->
-<!-- <section class="services py-5">
-	<div class="container py-lg-5 py-3">
-		<h2 class="heading text-capitalize mb-sm-5 mb-4"> Hostels </h2>
-		<div class="row service-grids">
-			<div class="col-lg-4 col-md-6 service-grid1">
-				<h3>A Hostel</h3></a>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>1 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>A Hostel</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mt-md-0 mt-5 service-grid1">
-				<h3>B Hostel</h3>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>3 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>B Hostel</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mt-lg-0 mt-5 service-grid1">
-				<h3>C Hostel</h3>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>2 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>C Hostel</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mt-5 service-grid1">
-				<h3>D Hostel</h3>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>4 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>D Hostel</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mt-5 service-grid1">
-				<h3>E Hostel</h3>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>4 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>E Hostel</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mt-5 service-grid1">
-				<h3>F Hostel</h3>
-				<div class="row">
-					<div class="col-md-3 col-2">
-						<h4>4 yr</h4>
-					</div>
-					<div class="col-md-9 col-10">
-						<p>F Hostel</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!-- services -->
+
 
 <!-- banner-bottom -->
 	<div class="banner-bottom">
@@ -235,18 +164,6 @@
 		<div class="container-fluid">
 			<div class="banner_bottom_agile_grids">
 				<div class="row wthree_banner_bottom_right_grids pr-sm-3">
-					<!--<div class="col-lg-3 col-sm-6 banner_bottom_right_grid">
-						<div class="view view-tenth">
-							<div class="agile_text_box">
-								<i class="fas fa-bath" aria-hidden="true"></i>
-								<h3> Apply for D-Hostel</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adip. Sed semper sem non commodo egestas. In rutrum enim a neque volutpat aliquet</p>
-							</div>
-							<div class="mask">
-								<img src="web_home/images/s1.jpg" class="img-responsive" alt="" />
-							</div>
-						</div>
-					</div>-->
 					<div class="col-lg-3 col-sm-6 mt-sm-0 mt-3 banner_bottom_right_grid">
 						<div class="view view1 view-tenth">
 							<div class="agile_text_box">
@@ -272,18 +189,6 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="col-lg-3 col-sm-6 mt-lg-0 mt-3 banner_bottom_right_grid">
-						<div class="view view3 view-tenth">
-							<div class="agile_text_box">
-								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3>Office Chairs</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adip. Sed semper sem non commodo egestas. In rutrum enim a neque volutpat aliquet</p>
-							</div>
-							<div class="mask">
-								<img src="web_home/images/s4.jpg" class="img-responsive" alt="" />
-							</div>
-						</div>
-					</div>-->
 					<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"> </div>

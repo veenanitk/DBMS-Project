@@ -116,6 +116,7 @@ session_start();
 			</div>
 	</div>
 </section>
+
 <?php
    if (isset($_POST['search'])) {
    	   $search_box = $_POST['search_box'];
@@ -135,7 +136,7 @@ session_start();
     <thead>
       <tr>
         <th>Student Name</th>
-        <th>Student ID</th>
+        <th>Roll No</th>
         <th>Hostel</th>
         <th>Message</th>
       </tr>
@@ -184,7 +185,7 @@ session_start();
     <thead>
       <tr>
         <th>Student Name</th>
-        <th>Student ID</th>
+        <th>Roll No</th>
         <th>Hostel</th>
         <th>Message</th>
       </tr>
@@ -215,14 +216,14 @@ session_start();
 			<div class="mail_grid_w3l">
 				<form action="allocate_room.php" method="post">
 					<div class="row">
-							<input type="submit" value="Allocate" name="submit">
+							<input type="submit" value="Allocate" name="submitallo">
 					</div>
 				</form>
 			</div>
 	</div>
 </section>
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['submitallo'])){
    $result1 = mysqli_query($conn,$query1);
 
    while($row1 = mysqli_fetch_assoc($result1)){
@@ -261,7 +262,7 @@ if(isset($_POST['submit'])){
      }
      else{
      	
-     		$query8 = "DELETE from Application where Student_id='$roll'";
+     		$query8 = "DELETE from Application where Application_status=1 and Hostel_id='$hostel_id'";
      		$result8 = mysqli_query($conn,$query8);
      		if($result8)
      		echo "<script type='text/javascript'>alert('Hostel is Full please apply for other hostel')</script>";

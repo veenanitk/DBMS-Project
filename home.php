@@ -64,8 +64,12 @@ session_start();
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="services.php">Hostels</a>
+						<a class="nav-link" href="services.php">Blocks</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="payment_form.php">Payment</a>
+					</li>
+
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 							<b class="caret"></b>
@@ -189,7 +193,7 @@ session_start();
 					</li>
 
 					<li>
-						<a href="services.php">Hostels</a>
+						<a href="services.php">Blocks</a>
 					</li>
 					<li>
 						<a href="profile.php">Profile</a>

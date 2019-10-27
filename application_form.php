@@ -57,7 +57,11 @@ session_start();
 							<a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="services.php">Hostels</a>
+							<a class="nav-link" href="services.php">Blocks</a>
+						</li>
+					
+						<li class="nav-ite">
+							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
 						<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
@@ -120,7 +124,7 @@ session_start();
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://nitc.ac.in" target="_blank">NITK <span class="display"> Surathkal</span></a>
+			<a class="navbar-brand" href="http://nitk.ac.in" target="_blank">NITK <span class="display"> Surathkal</span></a>
 		</div>
 		<div class="footer-grid">
 
@@ -131,7 +135,7 @@ session_start();
 					</li>
 
 					<li>
-						<a href="services.php">Hostels</a>
+						<a href="services.php">Blocks</a>
 					</li>
 					<li>
 						<a href="profile.php">Profile</a>
@@ -226,6 +230,14 @@ session_start();
       }
       else if($pwdCheck == true) {
 
+
+      	$query_imp = "SELECT * FROM Payment WHERE Student_id = '$roll'";
+   		$result_imp = mysqli_query($conn,$query_imp);
+    	$row_imp = mysqli_fetch_assoc($result_imp);
+    	$status = $row_imp['Status'];
+
+   		if($status==1){
+
       	    $query2 = "SELECT * FROM Hostel WHERE Hostel_name = '$hostel'";
       	    $result2 = mysqli_query($conn,$query2);
       	    $row2 = mysqli_fetch_assoc($result2);
@@ -236,6 +248,10 @@ session_start();
             if($result3){
             	 echo "<script type='text/javascript'>alert('Application sent successfully')</script>";
             }
+        }
+        else{
+        	echo "<script type='text/javascript'>alert('please payFees')</script>";
+        }
       }
      }
 

@@ -65,18 +65,18 @@ session_start();
 							<a class="nav-link" href="students.php">Students</a>
 						</li>
 			            <li class="dropdown nav-item">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu agile_short_dropdown">
-							<li>
-								<a href="admin_profile.php">My Profile</a>
-							</li>
-							<li>
-								<a href="../includes/logout.inc.php">Logout</a>
-							</li>
-						</ul>
-					</li>
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu agile_short_dropdown">
+								<li>
+									<a href="admin_profile.php">My Profile</a>
+								</li>
+								<li>
+									<a href="../includes/logout.inc.php">Logout</a>
+								</li>
+							</ul>
+						</li>
 
 					</ul>
 				</div>

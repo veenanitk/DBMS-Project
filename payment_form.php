@@ -1,11 +1,12 @@
 <?php
 session_start();
- require 'includes/config.inc.php';
+  require 'includes/config.inc.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Contact : W3layouts</title>
+<title> Payment Form</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,22 +32,10 @@ session_start();
 
 	<!-- web-fonts -->
 	<link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 	<!-- //web-fonts -->
 
 </head>
-<style type="text/css">
-	.card-header{
-		padding: 15px;
-		font-size: 30px;
-	}
-	.card-body{
-		padding: 15px;
-	}
-	.card-footer{
-		text-align: left;
-		padding: 15px;
-	}
-</style>
 
 <body>
 
@@ -57,7 +46,7 @@ session_start();
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="home.php">NITC <span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="home.php">NITK <span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -67,16 +56,12 @@ session_start();
 						<li class="nav-item">
 							<a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
 						</li>
-
 						<li class="nav-item">
-							<a class="nav-link" href="services.php">Hostels</a>
+							<a class="nav-link" href="services.php">Blocks</a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="contact.php">Contact</a>
+							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="message_user.php">Message Received</a>
-					</li>
 						<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 							<b class="caret"></b>
@@ -100,41 +85,52 @@ session_start();
 </div>
 <!-- //banner -->
 
+<br><br><br>
 <?php
-    $roll_no = $_SESSION['roll'];
-    $query = "SELECT * FROM Message WHERE receiver_id ='$roll_no'";
-    $result = mysqli_query($conn,$query);
-
-    while ($row = mysqli_fetch_assoc($result)){
-    	$hostel_id = $row['hostel_id'];
-    	$query6 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
-       $result6 = mysqli_query($conn,$query6);
-       $row6 = mysqli_fetch_assoc($result6);
-       $hostel_name = $row6['Hostel_name'];
-          ?>
-
-    <div class="container">
-      <div class="card">
-      <div class="card-header"><b><?php echo $row['subject_h']; ?></b></div>
-      <div class="card-body"><?php echo $row['message']; ?></div>
-      <div class="card-footer"><?php echo $hostel_name." Hostel Manager"; ?><span style="float: right"><?php echo $row['msg_date']." ".$row['msg_time']; ?></span></div>
-  </div>
-</div>
-<br><br>
-
-    <?php
-    }
-
+   $student_id = $_SESSION['Student_id'];
+   $query1 = "SELECT * FROM Student WHERE Student_id = '$student_id'";
+   $result1 = mysqli_query($conn,$query1);
+   $row1 = mysqli_fetch_assoc($result1);
+   $roll = $row1['student_id'];
 ?>
 
-<br>
-<br>
 
-<!-- footer -->
+<section class="contact py-5">
+	<div class="container">
+		<h2 class="heading text-capitalize mb-sm-5 mb-4"> Payment Form </h2>
+			<div class="mail_grid_w3l">
+				<form action="payment_form.php?id=<?php echo $_GET['id']?>" method="POST">
+					<div class="row">
+						<div class="col-md-6 contact_left_grid" data-aos="fade-right">
+						<!-- 	<div class="contact-fields-w3ls">
+								<input type="text" name="Name" placeholder="Name" value="<?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?>" required="" disabled="disabled">
+							</div> -->
+							<div class="contact-fields-w3ls">
+								<input type="text" name="roll_no" placeholder="Roll Number" value="<?php echo $_SESSION['roll']; ?>" required="" disabled="disabled">
+							</div>
+							<div class="contact-fields-w3ls">
+								<input type="text" name="Amount" placeholder="Amount" value="75000" required="" disabled="disabled">
+							</div>
+							<div class="contact-fields-w3ls">
+								<input type="password" name="pwd" placeholder="Password" required="">
+							</div>
+						</div>
+						<div class="col-md-6 contact_left_grid" data-aos="fade-left">
+							<input type="submit" name="submitfees" value="Pay">
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+	</div>
+</section>
+
+<!--footer-->
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://www.nitc.ac.in/" target="_blank">NIT <span class="display"> CALICUT</span></a>
+			<a class="navbar-brand" href="http://nitk.ac.in" target="_blank">NITK <span class="display"> Surathkal</span></a>
 		</div>
 		<div class="footer-grid">
 
@@ -143,12 +139,9 @@ session_start();
 					<li>
 						<a href="home.php">Home</a>
 					</li>
-					<li>
-						<a href="services.php">Hostels</a>
-					</li>
 
 					<li>
-						<a href="contact.php">Contact</a>
+						<a href="services.php">Hostels</a>
 					</li>
 					<li>
 						<a href="profile.php">Profile</a>
@@ -167,6 +160,14 @@ session_start();
 	<script type="text/javascript" src="web_home/js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="web_home/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
 	<!-- //js -->
+
+	<!-- stats -->
+	<script src="web_home/js/jquery.waypoints.min.js"></script>
+	<script src="web_home/js/jquery.countup.js"></script>
+	<script>
+		$('.counter').countUp();
+	</script>
+	<!-- //stats -->
 
 	<!-- start-smoth-scrolling -->
 	<script src="web_home/js/SmoothScroll.min.js"></script>
@@ -203,3 +204,45 @@ session_start();
 
 </body>
 </html>
+
+
+<?php
+
+   if(isset($_POST['submitfees'])){
+     $roll = $_SESSION['roll'];
+     $password = $_POST['pwd'];
+
+     /*echo "<script type='text/javascript'>alert('<?php echo $roll ?>')</script>";*/
+     $query_imp = "SELECT * FROM Payment WHERE Student_id = '$roll'";
+     $result_imp = mysqli_query($conn,$query_imp);
+     $row_imp = mysqli_fetch_assoc($result_imp);
+     $status = $row_imp['Status'];
+     /*echo "<script type='text/javascript'>alert('<?php echo $room_id ?>')</script>";*/
+     if(($status)==0){
+
+		     $query = "SELECT * FROM Student WHERE Student_id = '$roll'";
+		     $result = mysqli_query($conn,$query);
+		     if($row = mysqli_fetch_assoc($result)){
+		     	$pwdCheck = password_verify($password, $row['Pwd']);
+
+		        if($pwdCheck == false){
+		            echo "<script type='text/javascript'>alert('Incorrect Password!!')</script>";
+		        }
+		      	else if($pwdCheck == true) {
+
+		            $query3 = "INSERT INTO Payment VALUES ('$roll',1,75000)";
+		            $result3 = mysqli_query($conn,$query3);
+
+		            if($result3){
+		            	 echo "<script type='text/javascript'>alert('Fees Paid Successfully')</script>";
+		            }
+		      	}
+		     }
+     }
+     else{
+          echo "<script type='text/javascript'>alert('You have Already Paid the fees')</script>";
+      }
+
+
+}
+?>
