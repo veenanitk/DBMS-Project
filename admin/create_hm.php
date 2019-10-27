@@ -77,9 +77,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="students.php">Students</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="admin_contact.php">Contact</a>
-						</li>
 						<li class="dropdown nav-item">
 								<li>
 									<a href="../includes/logout.inc.php" class="nav-link">Logout</a>
@@ -154,9 +151,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <input type="text" name="hm_lname" placeholder="LAST NAME" required="required">
                   <input type="text" name="hm_mobile" placeholder="MOBILE NO" required="required">
                   <input type="text" name="hostel_name" placeholder="HOSTEL NAME" required="required">
-                  <input type="email" name="Email" placeholder="EMAIL" required="required">
                   <input type="password" name="pass" placeholder="HOSTEL MANAGER'S PASSWORD" required="required">
-                  <input type="password" name="confpass" placeholder="ISADMIN" required="required">
+                  <input type="password" name="confpass" placeholder="CONFIRM HOSTEL MANAGER'S PASSWORD" required="required">
 
                   <div class="send-button">
                     <input type="submit" name="hm_signup_submit">

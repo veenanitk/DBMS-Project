@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Index : W3layouts</title>
+<title> Admin Home</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,9 +68,6 @@ session_start();
 
 					<li class="nav-item">
 						<a class="nav-link" href="students.php">Students</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="admin_contact.php">Contact</a>
 					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
@@ -207,9 +204,6 @@ session_start();
 					</li>
 					<li>
 						<a href="students.php">Student</a>
-					</li>
-					<li>
-						<a href="admin_contact.php">Contact</a>
 					</li>
 					<li>
 						<a href="admin_profile.php">Profile</a>

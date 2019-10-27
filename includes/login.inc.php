@@ -45,7 +45,7 @@ if (isset($_POST['login-submit'])) {
         //exit();
       }
       else {
-        echo"<script>alert('error=strangeerr');window.location='../index.php'</script>";
+        echo"<script>alert('error=stranger');window.location='../index.php'</script>";
     //    header("Location: ../index.php?error=strangeerr");
         exit();
       }

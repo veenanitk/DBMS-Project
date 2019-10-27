@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Services : W3layouts</title>
+<title> Services</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,14 +67,6 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="services.php">Hostels</a>
 						</li>
-
-
-						<li class="nav-item">
-							<a class="nav-link" href="contact.php">Contact</a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link" href="message_user.php">Message Received</a>
-					</li>
 						<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 							<b class="caret"></b>
@@ -99,7 +91,7 @@
 <!-- //banner -->
 
 <!-- services -->
-<section class="services py-5">
+<!-- <section class="services py-5">
 	<div class="container py-lg-5 py-3">
 		<h2 class="heading text-capitalize mb-sm-5 mb-4"> Hostels </h2>
 		<div class="row service-grids">
@@ -171,7 +163,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!-- services -->
 
 <!-- banner-bottom -->
@@ -319,9 +311,6 @@
 
 					<li>
 						<a href="services.php">Hostels</a>
-					</li>
-					<li>
-						<a href="contact.php">Contact</a>
 					</li>
 					<li>
 						<a href="profile.php">Profile</a>

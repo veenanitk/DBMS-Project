@@ -2,7 +2,6 @@
 --
 -- Host: localhost    Database: hostel_management_system
 -- ------------------------------------------------------
--- Server version	5.7.23-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,9 +24,9 @@ DROP TABLE IF EXISTS `Hostel`;
 CREATE TABLE `Hostel` (
   `Hostel_id` int(10) NOT NULL AUTO_INCREMENT,
   `Hostel_name` varchar(255) NOT NULL,
-  `current_no_of_rooms` varchar(255) DEFAULT NULL,
-  `No_of_rooms` varchar(255) DEFAULT NULL,
-  `No_of_students` varchar(255) DEFAULT NULL,
+  `current_no_of_rooms` int(15) DEFAULT '0',
+  `No_of_rooms` int(15) DEFAULT '5',
+  `No_of_students` int(10) DEFAULT '0',
   PRIMARY KEY (`Hostel_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +37,7 @@ CREATE TABLE `Hostel` (
 
 LOCK TABLES `Hostel` WRITE;
 /*!40000 ALTER TABLE `Hostel` DISABLE KEYS */;
-INSERT INTO `Hostel` VALUES (1,'A',NULL,'400',NULL),(2,'B',NULL,'400',NULL),(3,'C',NULL,'400',NULL),(4,'D',NULL,'400',NULL),(5,'E',NULL,'400',NULL),(6,'F',NULL,'400',NULL);
+INSERT INTO `Hostel` VALUES (1,'A',0,5,0),(2,'B',0,5,0),(3,'C',0,5,0),(4,'D',0,5,0),(5,'E',0,5,0),(6,'F',0,5,0);
 /*!40000 ALTER TABLE `Hostel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-15 14:14:14

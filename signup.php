@@ -86,7 +86,7 @@
                 <label>Password:</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" name="pwd" placeholder="Password" required="required" />
+                    <input type="password" class="form-control" name="pwd" placeholder="Password" required="required" https://github.com/veenanitk/DBMS-Project.git/>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
         <p class=" w3l-register-p">Already a member?<a href="index.php" class="register"> Login</a></p>
     </div>
     <footer>
-        <p class="copyright-agileinfo"> &copy; 2018 DBMS Project. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/bharat-reddy/">Bharat-Prajwal-Rakesh</a></p>
+        <p class="copyright-agileinfo"> &copy; 2019 DBMS Project. All Rights Reserved </p>
     </footer>
 
 </body>

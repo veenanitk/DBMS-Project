@@ -42,10 +42,11 @@ CREATE TABLE `Hostel_Manager` (
 -- Dumping data for table `Hostel_Manager`
 --
 
--- LOCK TABLES `Hostel_Manager` WRITE;
+LOCK TABLES `Hostel_Manager` WRITE;
 /*!40000 ALTER TABLE `Hostel_Manager` DISABLE KEYS */;
+INSERT INTO `Hostel_Manager` (Hostel_man_id,Username,Fname,Lname,Mob_no,Pwd,Hostel_id,Isadmin) VALUES (1,'admin123','Admin','Nitk','9876543210','$2y$10$Zdf2.6p2QTAlcbjLG6q58.XV5ZMG4U/w0v8U34hq./4Ne0.PO39MS','1','1');
 /*!40000 ALTER TABLE `Hostel_Manager` ENABLE KEYS */;
--- UNLOCK TABLES;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

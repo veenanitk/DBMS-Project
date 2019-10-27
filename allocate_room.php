@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Services : W3layouts</title>
+<title> Allocate rooms</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@ session_start();
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="home_manager.php">NITC<span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="home_manager.php">NITK<span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -69,9 +69,6 @@ session_start();
 							<li>
 								<a href="allocated_rooms.php">Allocated Rooms</a>
 							</li>
-							<li class="nav-item">
-						<a class="nav-link" href="message_hostel_manager.php">Messages Received</a>
-					</li>
 							<li>
 								<a href="empty_rooms.php">Empty Rooms</a>
 							</li>
@@ -79,9 +76,6 @@ session_start();
 								<a href="vacate_rooms.php">Vacate Rooms</a>
 							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact_manager.php">Contact</a>
 					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
@@ -163,8 +157,8 @@ session_start();
 
       		echo "<tr><td>{$student_name}</td><td>{$row_search['Student_id']}</td><td>{$hostel_name}</td><td>{$row_search['Message']}</td></tr>\n";
 
+   	   	  }
    	   }
-   }
    ?>
    </tbody>
   </table>
@@ -198,7 +192,7 @@ session_start();
     <tbody>
     <?php
       if(mysqli_num_rows($result1)==0){
-         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+         echo '<tr><td colspan="4">Empty</td></tr>';
       }
       else{
       	while($row1 = mysqli_fetch_assoc($result1)){
@@ -231,11 +225,11 @@ session_start();
 if(isset($_POST['submit'])){
    $result1 = mysqli_query($conn,$query1);
 
-   /*echo "<script type='text/javascript'>alert('<?php echo $room_no ?>')</script>";*/
    while($row1 = mysqli_fetch_assoc($result1)){
          //find the minimum room number
      $query2 = "SELECT * FROM Room where Room_No = (SELECT MIN(Room_No) FROM Room where Allocated = '0' and Hostel_id = '$hostel_id')";
      $result2 = mysqli_query($conn,$query2);
+     /*echo "<script type='text/javascript'>alert('<?php echo $room_no ?>')</script>";*/
      if(!$result2){
      	   echo "<script type='text/javascript'>alert('Rooms not available')</script>";
      	   exit();
@@ -252,18 +246,26 @@ if(isset($_POST['submit'])){
      	$query4 = "UPDATE Student SET Hostel_id = '$hostel_id',Room_id = '$room_id' WHERE Student_id = '$student_id'";
      	$result4 = mysqli_query($conn,$query4);
      	if($result4){
-     		$query5 = "UPDATE Room SET Allocated = '1' where Room_id = '$room_id'";
+     		$query5 = "UPDATE Room SET Allocated = '1' where Room_No = '$room_no' and Hostel_id='$hostel_id'";
      		$result5 = mysqli_query($conn,$query5);
+
      		if($result5){
+     			$query6 = "UPDATE Hostel SET current_no_of_rooms=current_no_of_rooms + 1,No_of_students=No_of_students + 1 where Hostel_id='$hostel_id'";
+     			$result6 = mysqli_query($conn,$query6);
      		    echo "<script type='text/javascript'>alert('Rooms Allocated Successfully')</script>";
      		}
      	}
      	else{
-     		echo "<script type='text/javascript'>alert('Failed to allocate Rooms')</script>";
+     		echo "<script type='text/javascript'>alert('Failed to allocate Rooms in that hostel')</script>";
      	}
      }
      else{
-     	echo "<script type='text/javascript'>alert('Failed to allocate Rooms')</script>";
+     	
+     		$query8 = "DELETE from Application where Student_id='$roll'";
+     		$result8 = mysqli_query($conn,$query8);
+     		if($result8)
+     		echo "<script type='text/javascript'>alert('Hostel is Full please apply for other hostel')</script>";
+     	
      }
 
    }
@@ -278,7 +280,7 @@ if(isset($_POST['submit'])){
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand"  href="http://www.nitc.ac.in/" target="_blank" >NIT<span class="display"> CALICUT</span></a>
+			<a class="navbar-brand"  href="http://www.nitk.ac.in/" target="_blank" >NITK<span class="display"> SURATHKAL</span></a>
 		</div>
 		<div class="footer-grid">
 
@@ -291,9 +293,6 @@ if(isset($_POST['submit'])){
 						<a href="allocate_room.php">Allocate</a>
 					</li>
 
-					<li>
-						<a href="contact_manager.php">Contact</a>
-					</li>
 					<li>
 						<a href="admin/manager_profile.php">Profile</a>
 					</li>

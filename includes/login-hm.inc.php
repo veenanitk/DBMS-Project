@@ -33,7 +33,6 @@ if (isset($_POST['login-submit'])) {
         $_SESSION['mob_no'] = $row['Mob_no'];
         $_SESSION['username'] = $row['Username'];
         $_SESSION['hostel_id'] = $row['Hostel_id'];
-        $_SESSION['email'] = $row['Email'];
         $_SESSION['isadmin'] = $row['Isadmin'];
         $_SESSION['PSWD'] = $row['Pwd'];
 
@@ -56,7 +55,7 @@ if (isset($_POST['login-submit'])) {
         //exit();
       }
       else {
-        echo"<script>alert('error=strangeerr');window.location='../login-hostel_manager.php'</script>";
+        echo"<script>alert('error=stranger');window.location='../login-hostel_manager.php'</script>";
         //header("Location: ../login-hostel_manager.php?error=strangeerr");
         exit();
       }

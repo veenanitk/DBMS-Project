@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | About : W3layouts</title>
+<title> About Manager</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="index.html">In <span class="display"> Trend</span></a></h1>
+				<h1><a class="navbar-brand" href="index.html">NITK <span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -56,9 +56,6 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
 						<a class="nav-link" href="home_manager.php">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="about_manager.php">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="allocate_room.php">Allocate Rooms</a>

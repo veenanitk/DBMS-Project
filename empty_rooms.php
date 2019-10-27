@@ -49,7 +49,7 @@ session_start();
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="home_manager.php">NITC <span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="home_manager.php">NITK <span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -61,9 +61,6 @@ session_start();
 						</li>
 						<li class="nav-item">
 						<a class="nav-link" href="allocate_room.php">Allocate Rooms</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="message_hostel_manager.php">Messages Received</a>
 					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
@@ -80,9 +77,6 @@ session_start();
 								<a href="vacate_rooms.php">Vacate Rooms</a>
 							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact_manager.php">Contact</a>
 					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
@@ -209,7 +203,7 @@ session_start();
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://www.nitc.ac.in/" target="_blank">NIT <span class="display"> CALICUT</span></a>
+			<a class="navbar-brand" href="http://www.nitc.ac.in/" target="_blank">NITK <span class="display"> SURATHKAL</span></a>
 		</div>
 		<div class="footer-grid">
 			<div class="list-footer">
@@ -219,9 +213,6 @@ session_start();
 					</li>
 					<li>
 						<a href="allocate_room.php">Allocate</a>
-					</li>
-					<li>
-						<a href="contact_manager.php">Contact</a>
 					</li>
 					<li>
 						<a href="admin/manager_profile.php">Profile</a>

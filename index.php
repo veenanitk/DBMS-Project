@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>HMS</title>
+    <title>Hostel</title>
     <!-- meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,7 +55,7 @@
         <p class=" w3l-register-p">Don't have an account?<a href="signup.php" class="register"> Sign up</a></p>
     </div>
     <footer>
-        <p class="copyright-agileinfo"> &copy; 2018 DBMS Project. All Rights Reserved | Design by <a href="https://www.linkedin.com/in/bharat-reddy/">Bharat-Prajwal-Rakesh</a></p>
+        <p class="copyright-agileinfo"> &copy; 2019 DBMS Project. All Rights Reserved</p>
     </footer>
 
 </body>

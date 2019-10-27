@@ -76,10 +76,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a class="nav-link" href="services.php">Hostels</a>
 						</li>
 
-
-						<li class="nav-item">
-							<a class="nav-link" href="contact.php">Contact</a>
-						</li>
 						<li class="dropdown nav-item">
 							<!--<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 								<b class="caret"></b>
@@ -218,62 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clear"></div>
 					</div>
 			</fieldset>
-					<!--	<fieldset class="step wthree">
-						<legend>Work</legend>
-						<div class="work-w3agile">
-							<div class="work-w3agile-top">
-								<div class="agileits_w3layouts_work_grid1 w3layouts_work_grid1 hover14 column">
-									<div class="w3_agile_work_effect">
-										<ul>
-											<li>
-												<a href="web_profile/images/c1.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c1.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c2.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c2.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c3.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c3.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c4.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c4.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c5.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c5.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-											<li>
-												<a href="web_profile/images/c6.jpg" class="sb" title="Quis Nostrud Exercitation Ullamco Laboris Quis Autem Vel Eum Iure Reprehenderit">
-													<figure>
-														<img src="web_profile/images/c6.jpg" alt=" " class="img-responsive" />
-													</figure>
-												</a>
-											</li>
-												<div class="clear"></div>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>-->
+					
 					<fieldset class="step agileinfo w3ls_fancy_step">
 						<legend>Hostel Manager Info</legend>
 						<div class="abt-agile">
@@ -289,6 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										$hmlname = $row1['Lname'];
 										$hmMob  = $row1['Mob_no'];
 										$hmemail = $row1['Email'];
+
 									}
 									else {
 										$hmfname = 'none';
@@ -304,12 +246,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<ul class="address-text">
 											<li><b>PHONE </b></li>
 											<li>: <?php echo $hmMob; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>Email </b></li>
-											<li>: <?php echo $hmemail; ?></li>
 										</ul>
 									</li>
 								</ul>

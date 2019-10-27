@@ -88,9 +88,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</li>
 						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="../contact_manager.php">Contact</a>
-					</li>
 						<li class="dropdown nav-item">
 								<li>
 									<a href="../includes/logout.inc.php" class="nav-link">Logout</a>
@@ -139,12 +136,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<ul class="address-text">
 											<li><b>PHONE </b></li>
 											<li>: <?php echo $_SESSION['mob_no']; ?></li>
-										</ul>
-									</li>
-									<li>
-										<ul class="address-text">
-											<li><b>Email </b></li>
-											<li>: <?php echo $_SESSION['email']; ?></li>
 										</ul>
 									</li>
                   <li>
@@ -199,12 +190,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <ul class="address-text">
                     <li><b>PHONE </b></li>
                     <li>: <?php echo $adMob; ?></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul class="address-text">
-                    <li><b>Email </b></li>
-                    <li>: <?php echo $adEmail; ?></li>
                   </ul>
                 </li>
 

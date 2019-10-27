@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Services : W3layouts</title>
+<title> VACATE ROOMS</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@ session_start();
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="home.php">In <span class="display"> Trend</span></a></h1>
+				<h1><a class="navbar-brand" href="home.php">NITK<span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -59,14 +59,8 @@ session_start();
 							<a class="nav-link" href="home_manager.php">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about_manager.php">About</a>
-						</li>
-						<li class="nav-item">
 						<a class="nav-link" href="allocate_room.php">Allocate Room</a>
 					<li class="dropdown nav-item">
-						<li class="nav-item">
-						<a class="nav-link" href="message_hostel_manager.php">Messages Received</a>
-					</li>
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
 							<b class="caret"></b>
 						</a>
@@ -81,9 +75,6 @@ session_start();
 								<a href="vacate_rooms.php">Vacate Rooms</a>
 							</li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="contact.php">Contact</a>
 					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
@@ -175,10 +166,14 @@ if(isset($_POST['submit'])){
     		$query5 = "UPDATE Room SET Allocated = '0' WHERE Room_id = '$room_id'";
     		$result5 = mysqli_query($conn,$query5);
     		if($result5){
-    			$query6 = "DELETE FROM Application WHERE Student_id = '$roll'";
-    			$result6 = mysqli_query($conn,$query6);
-    			if($result6){
-    			    echo "<script type='text/javascript'>alert('Vacated Successfully')</script>";
+    			$query7 = "UPDATE Hostel SET current_no_of_rooms=current_no_of_rooms - 1,No_of_students=No_of_students - 1 WHERE Hostel_id='$hostel_id'";
+    			$result7 = mysqli_query($conn,$query7);
+    			if($result7){
+    				$query6 = "DELETE FROM Application WHERE Student_id = '$roll'";
+    				$result6 = mysqli_query($conn,$query6);
+    				if($result6){
+    				    echo "<script type='text/javascript'>alert('Vacated Successfully')</script>";
+    				}
     			}
 
     		}
@@ -195,7 +190,7 @@ if(isset($_POST['submit'])){
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="index.html">In <span class="display"> Trend</span></a>
+			<a class="navbar-brand" href="index.html">NITK<span class="display"></span></a>
 		</div>
 		<div class="footer-grid">
 			<div class="social mb-4 text-center">
@@ -213,22 +208,14 @@ if(isset($_POST['submit'])){
 						<a href="home_manager.php">Home</a>
 					</li>
 					<li>
-						<a href="about_manager.php">About</a>
+						<a href="allocated.php">Allocated Rooms</a>
 					</li>
+					
 					<li>
-						<a href="services.php">Services</a>
-					</li>
-					<li>
-						<a href="projects.php">Gallery</a>
-					</li>
-					<li>
-						<a href="contact.php">Contact</a>
+						<a href="admin/manager_profile.php">Profile</a>
 					</li>
 				</ul>
 			</div>
-			<div class="agileits_w3layouts-copyright mt-4 text-center">
-				<p>© 2018 Intrend. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="=_blank"> W3layouts </a></p>
-		</div>
 		</div>
 	</div>
 </footer>
