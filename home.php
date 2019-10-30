@@ -69,6 +69,10 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="payment_form.php">Payment</a>
 					</li>
+					
+						<li class="nav-ite">
+							<a class="nav-link" href="services_mess.php">Mess</a>
+						</li>
 
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>

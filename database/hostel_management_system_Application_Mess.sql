@@ -2,7 +2,6 @@
 --
 -- Host: localhost    Database: hostel_management_system
 -- ------------------------------------------------------
--- Server version	5.7.23-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,40 +15,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Hostel_Manager`
+-- Table structure for table `Application`
 --
 
-DROP TABLE IF EXISTS `Hostel_Manager`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Hostel_Manager` (
-  `Hostel_man_id` int(10) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(255) NOT NULL,
-  `Fname` varchar(255) NOT NULL,
-  `Lname` varchar(255) NOT NULL,
-  `Mob_no` varchar(255) NOT NULL,
-  `Hostel_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `Application_mess`;
+CREATE TABLE `Application_mess` (
+  `Application_id` int(100) NOT NULL AUTO_INCREMENT,
+  `Student_id` varchar(255) NOT NULL,
   `Mess_id` int(10) NOT NULL,
-  `Pwd` LONGTEXT NOT NULL,
-  `Isadmin` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`Hostel_man_id`),
-  UNIQUE (`Username`),
-  KEY `Hostel_id` (`Hostel_id`),
-  CONSTRAINT `Hostel_Manager_ibfk_1` FOREIGN KEY (`Hostel_id`) REFERENCES `Hostel` (`Hostel_id`),
+  `Application_status` tinyint(1) DEFAULT NULL,
+  `Mess_card_No` int(10) DEFAULT NULL,
+  `Message` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Application_id`),
+  KEY `Student_id` (`Student_id`),
   KEY `Mess_id` (`Mess_id`),
-  CONSTRAINT `Hostel_Manager_ibfk_2` FOREIGN KEY (`Mess_id`) REFERENCES `Mess` (`Mess_id`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `Application_mess_ibfk_1` FOREIGN KEY (`Student_id`) REFERENCES `Student` (`Student_id`),
+  CONSTRAINT `Application_mess_ibfk_2` FOREIGN KEY (`Mess_id`) REFERENCES `Mess` (`Mess_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Hostel_Manager`
+-- Dumping data for table `Application`
 --
 
-LOCK TABLES `Hostel_Manager` WRITE;
-/*!40000 ALTER TABLE `Hostel_Manager` DISABLE KEYS */;
-INSERT INTO `Hostel_Manager` (Hostel_man_id,Username,Fname,Lname,Mob_no,Pwd,Hostel_id,Mess_id,Isadmin) VALUES (1,'admin123','Admin','Nitk','9876543210','$2y$10$Zdf2.6p2QTAlcbjLG6q58.XV5ZMG4U/w0v8U34hq./4Ne0.PO39MS','1','1','1');
-/*!40000 ALTER TABLE `Hostel_Manager` ENABLE KEYS */;
+LOCK TABLES `Application_mess` WRITE;
+/*!40000 ALTER TABLE `Application_mess` DISABLE KEYS */;
+INSERT INTO `Application_mess` VALUES (1,'B160497CS',1,1,NULL,'blahhhh ');
+/*!40000 ALTER TABLE `Application_mess` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -61,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 11:23:48
+-- Dump completed on 2018-10-15 14:14:13

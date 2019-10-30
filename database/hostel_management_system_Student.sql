@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
+  -- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
 --
 -- Host: localhost    Database: hostel_management_system
 -- ------------------------------------------------------
@@ -40,9 +40,9 @@ CREATE TABLE `Student` (
   CONSTRAINT `Student_ibfk_1` FOREIGN KEY (`Hostel_id`) REFERENCES `Hostel` (`Hostel_id`),
   CONSTRAINT `Student_ibfk_2` FOREIGN KEY (`Room_id`) REFERENCES `Room` (`Room_id`),
   KEY `Mess_id` (`Mess_id`),
+  CONSTRAINT `Student_ibfk_3` FOREIGN KEY (`Mess_id`) REFERENCES `Mess` (`Mess_id`),
   KEY `Mess_card_id` (`Mess_card_id`),
-  CONSTRAINT `Student_ibfk_3` FOREIGN KEY (`Mess_id`) REFERENCES `Mess_id` (`Mess_id`),
-  CONSTRAINT `Student_ibfk_4` FOREIGN KEY (`Mess_card_id`) REFERENCES `Mess_card_id` (`Mess_card_id`)
+  CONSTRAINT `Student_ibfk_4` FOREIGN KEY (`Mess_card_id`) REFERENCES `Mess_Allocation` (`Mess_card_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

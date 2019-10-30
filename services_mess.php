@@ -72,7 +72,7 @@
 						</li>
 						<li class="nav-ite">
 							<a class="nav-link" href="services_mess.php">Mess</a>
-						</li>	
+						</li>
 						<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 							<b class="caret"></b>
@@ -107,11 +107,11 @@
 						<div class="view view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3> Apply for A-Hostel</h3>
-								<p>A Hostel</p>
+								<h3> Apply for A-Mess</h3>
+								<p>A Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=A"><img src="web_home/images/s1.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=A"><img src="web_home/images/s1.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -119,11 +119,11 @@
 						<div class="view view1 view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3>Apply for B-Hostel</h3>
-								<p>B Hostel</p>
+								<h3>Apply for B-Mess</h3>
+								<p>B Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=B"><img src="web_home/images/s2.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=B"><img src="web_home/images/s2.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -132,11 +132,11 @@
 						<div class="view view2 view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3>Apply for C-Hostel</h3>
-								<p>C Hostel</p>
+								<h3>Apply for C-Mess</h3>
+								<p>C Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=C"><img src="web_home/images/s3.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=C"><img src="web_home/images/s3.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -144,11 +144,11 @@
 						<div class="view view3 view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3>Apply for D-Hostel</h3>
-								<p>D Hostel</p>
+								<h3>Apply for D-Mess</h3>
+								<p>D Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=D"><img src="web_home/images/s4.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=D"><img src="web_home/images/s4.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -171,11 +171,11 @@
 						<div class="view view1 view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3> Apply for E-Hostel</h3>
-								<p>E Hostel</p>
+								<h3> Apply for E-Mess</h3>
+								<p>E Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=E"><img src="web_home/images/s2.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=E"><img src="web_home/images/s2.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -184,11 +184,11 @@
 						<div class="view view2 view-tenth">
 							<div class="agile_text_box">
 								<i class="fas fa-bed" aria-hidden="true"></i>
-								<h3>Apply for F-Hostel </h3>
-								<p>F Hostel</p>
+								<h3>Apply for F-Mess </h3>
+								<p>F Mess</p>
 							</div>
 							<div class="mask">
-								<a href="application_form.php?id=F"><img src="web_home/images/s3.jpg" class="img-responsive" alt="" /></a>
+								<a href="application_form_mess.php?id=F"><img src="web_home/images/s3.jpg" class="img-responsive" alt="" /></a>
 							</div>
 						</div>
 					</div>
@@ -218,10 +218,14 @@
 					</li>
 
 					<li>
-						<a href="services.php">Hostels</a>
+						<a href="services_mess.php">Hostels</a>
 					</li>
 					<li>
 						<a href="profile.php">Profile</a>
+					</li>
+
+					<li>
+						<a href="profile.php">Mess</a>
 					</li>
 				</ul>
 			</div>

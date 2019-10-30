@@ -58,13 +58,14 @@ session_start();
 						<li class="nav-item">
 							<a class="nav-link" href="home_manager.php">Home <span class="sr-only">(current)</span></a>
 						</li>
+						
 						<li class="nav-item">
 							<a class="nav-link" href="allocate_room.php">Allocate Room</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="allocate_mess_card.php">Allocate Mess</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link" href="allocate_mess_card.php">Allocate Mess</a>
-					</li>
 						<li class="dropdown nav-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
 								<b class="caret"></b>
@@ -81,20 +82,20 @@ session_start();
 								</li>
 							</ul>
 						</li>
-						
-					<li class="dropdown nav-item">
-						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Mess
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu agile_short_dropdown">
-							<li>
-								<a href="allocated_mess_card.php">Allocated Mess</a>
-							</li>
-							<li>
-								<a href="vacate_mess.php">Vacate Mess</a>
-							</li>
-						</ul>
-					</li>
+
+						<li class="dropdown nav-item">
+							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu agile_short_dropdown">
+								<li>
+									<a href="allocated_mess.php">Allocated Mess Cards</a>
+								</li>
+								<li>
+									<a href="vacate_mess.php">Vacate Mess</a>
+								</li>
+							</ul>
+						</li>
 						<li class="dropdown nav-item">
 							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['username']; ?>
 								<b class="caret"></b>
@@ -118,28 +119,28 @@ session_start();
 
 <br><br><br>
 <?php
-   $hostel_id = $_SESSION['hostel_id'];
-   $query1 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
+   $mess_id = $_SESSION['mess_id'];
+   $query1 = "SELECT * FROM Mess WHERE Mess_id = '$mess_id'";
    $result1 = mysqli_query($conn,$query1);
    $row1 = mysqli_fetch_assoc($result1);
-   $hostel_name = $row1['Hostel_name'];
+   $mess_name = $row1['Mess_name'];
 ?>
 
 <section class="contact py-5">
 	<div class="container">
 		<h2 class="heading text-capitalize mb-sm-5 mb-4"> Vacate Form </h2>
 			<div class="mail_grid_w3l">
-				<form action="vacate_rooms.php" method="post">
+				<form action="vacate_mess.php" method="post">
 					<div class="row">
 						<div class="col-md-6 contact_left_grid" data-aos="fade-right">
 							<div class="contact-fields-w3ls">
 								<input type="text" name="roll_no" placeholder="Roll Number" required >
 							</div>
 							<div class="contact-fields-w3ls">
-								<input type="text" name="hostel" placeholder="Hostel" value="<?php echo $hostel_name;?>" required="" disabled="disabled">
+								<input type="text" name="mess" placeholder="Mess" value="<?php echo $mess_name;?>" required="" disabled="disabled">
 							</div>
 							<div class="contact-fields-w3ls">
-								<input type="number" name="room_no" placeholder="Room Number" required="">
+								<input type="number" name="mess_card_no" placeholder="Mess Card Number" required="">
 							</div>
 						</div>
 						<div class="col-md-6 contact_left_grid" data-aos="fade-left">
@@ -155,10 +156,10 @@ session_start();
 <?php
 if(isset($_POST['submit'])){
      $roll = $_POST['roll_no'];
-     $hostel = $_POST['hostel'];
-     $room_number =(int)$_POST['room_no'];
+     $mess = $_POST['mess'];
+     $mess_card_number =(int)$_POST['mess_card_no'];
 
-    $query2 = "SELECT * FROM Room WHERE Hostel_id = '$hostel_id' and Room_No = '$room_number'";
+    $query2 = "SELECT * FROM Mess_Allocation WHERE Mess_id = '$mess_id' and Mess_card_No = '$mess_card_number'";
     $result2 = mysqli_query($conn,$query2);
     if(mysqli_num_rows($result2)==0){
         echo "<script type='text/javascript'>alert('Incorrect Details')</script>";
@@ -166,12 +167,12 @@ if(isset($_POST['submit'])){
     }
     $row2 = mysqli_fetch_assoc($result2);
     if($row2['Allocated']=='0'){
-    	echo "<script type='text/javascript'>alert('Room Not Allocated')</script>";
+    	echo "<script type='text/javascript'>alert('Mess Not Allocated')</script>";
     	exit();
     }
-    $room_id = (int)$row2['Room_id'];
-    /*echo "<script type='text/javascript'>alert('<?php echo $room_id ?>')</script>";*/
-	$query3 = "SELECT * FROM Student WHERE Student_id = '$roll' and Hostel_id = '$hostel_id' and Room_id = '$room_id'";
+    $mess_card_id = (int)$row2['Mess_card_id'];
+    /*echo "<script type='text/javascript'>alert('<?php echo $mess_card_id ?>')</script>";*/
+	$query3 = "SELECT * FROM Student WHERE Student_id = '$roll' and Mess_id = '$mess_id' and Room_id = '$room_id'";
 	$result3 = mysqli_query($conn,$query3);
     if(mysqli_num_rows($result3)==0){
         echo "<script type='text/javascript'>alert('Incorrect Details 2')</script>";
@@ -179,16 +180,16 @@ if(isset($_POST['submit'])){
     }
     $row3 = mysqli_fetch_assoc($result3);
     if($result3){
-    	$query4 = "UPDATE Student SET Hostel_id = NULL, Room_id = NULL WHERE Student_id = '$roll'";
+    	$query4 = "UPDATE Student SET Mess_id = NULL, Mess_card_id = NULL WHERE Student_id = '$roll'";
     	$result4 = mysqli_query($conn,$query4);
     	if($result4){
-    		$query5 = "UPDATE Room SET Allocated = '0' WHERE Room_id = '$room_id'";
+    		$query5 = "UPDATE Mess_Allocation SET Allocated = '0' WHERE Mess_card_id = '$mess_card_id'";
     		$result5 = mysqli_query($conn,$query5);
     		if($result5){
-    			$query7 = "UPDATE Hostel SET current_no_of_rooms=current_no_of_rooms - 1,No_of_students=No_of_students - 1 WHERE Hostel_id='$hostel_id'";
+    			$query7 = "UPDATE Mess SET current_no_of_rooms=current_no_of_rooms - 1,No_of_students=No_of_students - 1 WHERE Mess_id='$mess_id'";
     			$result7 = mysqli_query($conn,$query7);
     			if($result7){
-    				$query6 = "DELETE FROM Application WHERE Student_id = '$roll'";
+    				$query6 = "DELETE FROM Application_mess WHERE Student_id = '$roll'";
     				$result6 = mysqli_query($conn,$query6);
     				if($result6){
     				    echo "<script type='text/javascript'>alert('Vacated Successfully')</script>";
@@ -227,7 +228,7 @@ if(isset($_POST['submit'])){
 						<a href="home_manager.php">Home</a>
 					</li>
 					<li>
-						<a href="allocated.php">Allocated Rooms</a>
+						<a href="allocated.php">Allocated Mess</a>
 					</li>
 					
 					<li>

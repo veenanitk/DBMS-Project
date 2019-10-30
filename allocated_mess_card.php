@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Allocated Rooms</title>
+<title> Allocated Mess</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,7 +124,7 @@ session_start();
 <section class="contact py-5">
 	<div class="container">
 			<div class="mail_grid_w3l">
-				<form action="allocated_rooms.php" method="post">
+				<form action="allocated_mess_card.php" method="post">
 					<div class="row">
 					        <div class="col-md-9">
 							<input type="text" placeholder="Search by Roll Number" name="search_box">
@@ -141,15 +141,15 @@ session_start();
    if (isset($_POST['search'])) {
    	   $search_box = $_POST['search_box'];
    	   /*echo "<script type='text/javascript'>alert('<?php echo $search_box; ?>')</script>";*/
-   	   $hostel_id = $_SESSION['hostel_id'];
-   	   $query_search = "SELECT * FROM Student WHERE Student_id like '$search_box%' and Hostel_id = '$hostel_id'";
+   	   $mess_id = $_SESSION['Mess_id'];
+   	   $query_search = "SELECT * FROM Student WHERE Student_id like '$search_box%' and Mess_id = '$mess_id'";
    	   $result_search = mysqli_query($conn,$query_search);
 
-   	   //select the hostel name from hostel table
-       $query6 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
+   	   //select the mess name from mess table
+       $query6 = "SELECT * FROM Mess WHERE Mess_id = '$mess_id'";
        $result6 = mysqli_query($conn,$query6);
        $row6 = mysqli_fetch_assoc($result6);
-       $hostel_name = $row6['Hostel_name'];
+       $mess_name = $row6['Mess_name'];
    	   ?>
    	   <div class="container">
    	   <table class="table table-hover">
@@ -158,8 +158,8 @@ session_start();
         <th>Student Name</th>
         <th>Roll No</th>
         <th>Contact Number</th>
-        <th>Hostel</th>
-        <th>Room Number</th>
+        <th>Mess</th>
+        <th>Mess card Number</th>
       </tr>
     </thead>
     <tbody>
@@ -170,15 +170,15 @@ session_start();
    	   else{
    	   	  while($row_search = mysqli_fetch_assoc($result_search)){
       		//get the name of the student to display
-            $room_id = $row_search['Room_id'];
-            $query7 = "SELECT * FROM Room WHERE Room_id = '$room_id'";
+            $mess_card_id = $row_search['Mess_card_id'];
+            $query7 = "SELECT * FROM Mess_Allocation WHERE Mess_card_id = '$mess_card_id'";
             $result7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_assoc($result7);
-            $room_no = $row7['Room_No'];
+            $mess_card_no = $row7['Mess_card_No'];
             //student name
             $student_name = $row_search['Fname']." ".$row_search['Lname'];
 
-      		echo "<tr><td>{$student_name}</td><td>{$row_search['Student_id']}</td><td>{$row_search['Mob_no']}</td><td>{$hostel_name}</td><td>{$room_no}</td></tr>\n";
+      		echo "<tr><td>{$student_name}</td><td>{$row_search['Student_id']}</td><td>{$row_search['Mob_no']}</td><td>{$mess_name}</td><td>{$mess_card_no}</td></tr>\n";
    	   }
    }
    ?>
@@ -191,16 +191,16 @@ session_start();
 
 
 <div class="container">
-<h2 class="heading text-capitalize mb-sm-5 mb-4"> Rooms Allotted </h2>
+<h2 class="heading text-capitalize mb-sm-5 mb-4"> Mess Allotted </h2>
 <?php
-   $hostel_id = $_SESSION['hostel_id'];
-   $query1 = "SELECT * FROM Student where Hostel_id = '$hostel_id'";
+   $mess_id = $_SESSION['mess_id'];
+   $query1 = "SELECT * FROM Student where Mess_id = '$mess_id'";
    $result1 = mysqli_query($conn,$query1);
-   //select the hostel name from hostel table
-   $query6 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
+   //select the mess name from mess table
+   $query6 = "SELECT * FROM Mess WHERE Mess_id = '$mess_id'";
    $result6 = mysqli_query($conn,$query6);
    $row6 = mysqli_fetch_assoc($result6);
-   $hostel_name = $row6['Hostel_name'];
+   $mess_name = $row6['Mess_name'];
 
 
 ?>
@@ -211,8 +211,8 @@ session_start();
         <th>Student Name</th>
         <th>Roll No</th>
         <th>Contact Number</th>
-        <th>Hostel</th>
-        <th>Room Number</th>
+        <th>Mess</th>
+        <th>Mess card Number</th>
       </tr>
     </thead>
     <tbody>
@@ -222,16 +222,16 @@ session_start();
       }
       else{
       	while($row1 = mysqli_fetch_assoc($result1)){
-      		//get the room_no of the student from room_id in room table
-            $room_id = $row1['Room_id'];
-            $query7 = "SELECT * FROM Room WHERE Room_id = '$room_id'";
+      		//get the mess_card_no of the student from mess_card_id in Mess_Allocation table
+            $mess_card_id = $row1['Mess_card_id'];
+            $query7 = "SELECT * FROM Mess_Allocation WHERE Mess_card_id = '$mess_card_id'";
             $result7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_assoc($result7);
-            $room_no = $row7['Room_No'];
+            $mess_card_no = $row7['Mess_card_No'];
             //student name
             $student_name = $row1['Fname']." ".$row1['Lname'];
 
-      		echo "<tr><td>{$student_name}</td><td>{$row1['Student_id']}</td><td>{$row1['Mob_no']}</td><td>{$hostel_name}</td><td>{$room_no}</td></tr>\n";
+      		echo "<tr><td>{$student_name}</td><td>{$row1['Student_id']}</td><td>{$row1['Mob_no']}</td><td>{$mess_name}</td><td>{$mess_card_no}</td></tr>\n";
       	}
       }
     ?>
@@ -255,7 +255,7 @@ session_start();
 						<a href="home_manager.php">Home</a>
 					</li>
 					<li>
-						<a href="allocate_room.php">Allocate</a>
+						<a href="allocate_mess_card.php">Allocate</a>
 					</li>
 					<li>
 						<a href="admin/manager_profile.php">Profile</a>

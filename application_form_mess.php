@@ -56,7 +56,7 @@ session_start();
 						<li class="nav-item">
 							<a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="services.php">Blocks</a>
 						</li>
 					
@@ -64,7 +64,7 @@ session_start();
 							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
 						
-						<li class="nav-item">
+						<li class="nav-item active">
 							<a class="nav-link" href="services_mess.php">Mess</a>
 						</li>
 						<li class="dropdown nav-item">
@@ -94,7 +94,7 @@ session_start();
 	<div class="container">
 		<h2 class="heading text-capitalize mb-sm-5 mb-4"> Application Form </h2>
 			<div class="mail_grid_w3l">
-				<form action="application_form.php?id=<?php echo $_GET['id']?>" method="POST">
+				<form action="application_form_mess.php?id=<?php echo $_GET['id']?>" method="POST">
 					<div class="row">
 						<div class="col-md-6 contact_left_grid" data-aos="fade-right">
 							<div class="contact-fields-w3ls">
@@ -104,7 +104,7 @@ session_start();
 								<input type="text" name="roll_no" placeholder="Roll Number" value="<?php echo $_SESSION['roll']?>" required="" disabled="disabled">
 							</div>
 							<div class="contact-fields-w3ls">
-								<input type="text" name="hostel" placeholder="Hostel" value="<?php echo $_GET['id']?>" required="" disabled="disabled">
+								<input type="text" name="mess" placeholder="Mess" value="<?php echo $_GET['id']?>" required="" disabled="disabled">
 							</div>
 							<div class="contact-fields-w3ls">
 								<input type="password" name="pwd" placeholder="Password" required="">
@@ -114,7 +114,7 @@ session_start();
 							<div class="contact-fields-w3ls">
 								<textarea name="Message" placeholder="Message..." ></textarea>
 							</div>
-							<input type="submit" name="submit" value="Click to Apply">
+							<input type="submit" name="submitmess" value="Click to Apply">
 						</div>
 					</div>
 
@@ -205,21 +205,20 @@ session_start();
 
 <?php
 
-   if(isset($_POST['submit'])){
+   if(isset($_POST['submitmess'])){
      $roll = $_SESSION['roll'];
      $password = $_POST['pwd'];
-     $hostel = $_GET['id'];
+     $mess_name = $_GET['id'];
      $message = $_POST['Message'];
 
      /*echo "<script type='text/javascript'>alert('<?php echo $roll ?>')</script>";*/
      $query_imp = "SELECT * FROM Student WHERE Student_id = '$roll'";
      $result_imp = mysqli_query($conn,$query_imp);
      $row_imp = mysqli_fetch_assoc($result_imp);
-     $room_id = $row_imp['Room_id'];
-     /*echo "<script type='text/javascript'>alert('<?php echo $room_id ?>')</script>";*/
-     if(is_null($room_id)){
+     $mess_card_id = $row_imp['Mess_card_id'];
+     if(is_null($mess_card_id)){
 
-     $query_imp2 = "SELECT * FROM Application WHERE Student_id = '$roll'";
+     $query_imp2 = "SELECT * FROM Application_mess WHERE Student_id = '$roll'";
      $result_imp2 = mysqli_query($conn,$query_imp2);
      if(mysqli_num_rows($result_imp2)==0){
 
@@ -242,15 +241,22 @@ session_start();
 
    		if($status==1){
 
-      	    $query2 = "SELECT * FROM Hostel WHERE Hostel_name = '$hostel'";
+
+
+      	    $query2 = "SELECT * FROM Mess WHERE Mess_name = '$mess_name'";
       	    $result2 = mysqli_query($conn,$query2);
       	    $row2 = mysqli_fetch_assoc($result2);
-      	    $hostel_id = $row2['Hostel_id'];
-            $query3 = "INSERT INTO Application (Student_id,Hostel_id,Application_status,Message) VALUES ('$roll','$hostel_id',true,'$message')";
+      	    $mess_id = $row2['Mess_id'];
+
+            $query3 = "INSERT INTO Application_mess (Student_id,Mess_id,Application_status,Message) VALUES ('$roll','$mess_id',true,'$message')";
             $result3 = mysqli_query($conn,$query3);
 
             if($result3){
             	 echo "<script type='text/javascript'>alert('Application sent successfully')</script>";
+            }
+            else{
+
+				echo "<script type='text/javascript'>alert('failed')</script>";
             }
         }
         else{
@@ -261,12 +267,12 @@ session_start();
 
      }
      else{
-     	echo "<script type='text/javascript'>alert('You have Already applied for a Room')</script>";
+     	echo "<script type='text/javascript'>alert('You have Already applied for a mess')</script>";
      }
 
      }
      else{
-          echo "<script type='text/javascript'>alert('You have Already been alloted a Room')</script>";
+          echo "<script type='text/javascript'>alert('You have Already been alloted a mess')</script>";
       }
 
 

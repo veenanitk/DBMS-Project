@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `Mess`;
 CREATE TABLE `Mess` (
   `Mess_id` int(10) NOT NULL AUTO_INCREMENT,
   `Mess_name` varchar(255) NOT NULL,
-  `Mess_type` varchar(15) NOT NULL,
+  `Mess_type` varchar(255) NOT NULL,
   `Vacancy` int(15) DEFAULT '5',
   `Size` int(15) DEFAULT '5',
 
@@ -34,7 +34,9 @@ CREATE TABLE `Mess` (
 
 
 LOCK TABLES `Mess` WRITE;
+/*!40000 ALTER TABLE `Mess` DISABLE KEYS */;
 INSERT INTO `Mess` VALUES (1,'A','Veg',5,5),(2,'B','Veg',5,5),(3,'C','Veg',5,5),(4,'D','Non-veg',5,5),(5,'E','Non-veg',5,5),(6,'F','Non-veg',5,5);
+/*!40000 ALTER TABLE `Mess` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

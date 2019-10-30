@@ -162,7 +162,7 @@ session_start();
 
 
 <div class="container">
-<h2 class="heading text-capitalize mb-sm-5 mb-4"> Rooms Allotted </h2>
+<h2 class="heading text-capitalize mb-sm-5 mb-4"> Students Details</h2>
 <?php
    //$hostel_id = $_SESSION['hostel_id'];
    $query1 = "SELECT * FROM Student";

@@ -7,7 +7,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title> Allocated Rooms</title>
+<title> Allocate mess</title>
 
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@ session_start();
 		<div class="container agile-banner_nav">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<h1><a class="navbar-brand" href="home_manager.php">NITK <span class="display"></span></a></h1>
+				<h1><a class="navbar-brand" href="home_manager.php">NITK<span class="display"></span></a></h1>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -59,7 +59,6 @@ session_start();
 						<li class="nav-item">
 							<a class="nav-link" href="home_manager.php">Home <span class="sr-only">(current)</span></a>
 						</li>
-
 						<li class="nav-item">
 						<a class="nav-link" href="allocate_room.php">Allocate Room</a>
 					</li>
@@ -67,7 +66,6 @@ session_start();
 					<li class="nav-item">
 						<a class="nav-link" href="allocate_mess_card.php">Allocate Mess</a>
 					</li>
-
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
 							<b class="caret"></b>
@@ -84,7 +82,6 @@ session_start();
 							</li>
 						</ul>
 					</li>
-					
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Mess
 							<b class="caret"></b>
@@ -124,32 +121,33 @@ session_start();
 <section class="contact py-5">
 	<div class="container">
 			<div class="mail_grid_w3l">
-				<form action="allocated_rooms.php" method="post">
+				<form action="allocate_mess_card.php" method="post">
 					<div class="row">
 					        <div class="col-md-9">
 							<input type="text" placeholder="Search by Roll Number" name="search_box">
 							</div>
 							<div class="col-md-3">
-							<input type="submit" value="Search" name="search"></input>
+							<input type="submit" value="Search" name="searchmesscard"></input>
 							</div>
 					</div>
 				</form>
 			</div>
 	</div>
 </section>
+
 <?php
-   if (isset($_POST['search'])) {
+   if (isset($_POST['searchmesscard'])) {
    	   $search_box = $_POST['search_box'];
    	   /*echo "<script type='text/javascript'>alert('<?php echo $search_box; ?>')</script>";*/
-   	   $hostel_id = $_SESSION['hostel_id'];
-   	   $query_search = "SELECT * FROM Student WHERE Student_id like '$search_box%' and Hostel_id = '$hostel_id'";
+   	   $mess_id = $_SESSION['mess_id'];
+   	   $query_search = "SELECT * FROM Application_mess WHERE Student_id like '$search_box%' and Mess_id = '$mess_id' and Application_status = '1'";
    	   $result_search = mysqli_query($conn,$query_search);
 
-   	   //select the hostel name from hostel table
-       $query6 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
+   	   //select the mess name from mess table
+       $query6 = "SELECT * FROM Mess WHERE Mess_id = '$mess_id'";
        $result6 = mysqli_query($conn,$query6);
        $row6 = mysqli_fetch_assoc($result6);
-       $hostel_name = $row6['Hostel_name'];
+       $mess_name = $row6['Mess_name'];
    	   ?>
    	   <div class="container">
    	   <table class="table table-hover">
@@ -157,9 +155,8 @@ session_start();
       <tr>
         <th>Student Name</th>
         <th>Roll No</th>
-        <th>Contact Number</th>
-        <th>Hostel</th>
-        <th>Room Number</th>
+        <th>Mess</th>
+        <th>Message</th>
       </tr>
     </thead>
     <tbody>
@@ -170,17 +167,17 @@ session_start();
    	   else{
    	   	  while($row_search = mysqli_fetch_assoc($result_search)){
       		//get the name of the student to display
-            $room_id = $row_search['Room_id'];
-            $query7 = "SELECT * FROM Room WHERE Room_id = '$room_id'";
+            $student_id = $row_search['Student_id'];
+
+            $query7 = "SELECT * FROM Student WHERE Student_id = '$student_id'";
             $result7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_assoc($result7);
-            $room_no = $row7['Room_No'];
-            //student name
-            $student_name = $row_search['Fname']." ".$row_search['Lname'];
+            $student_name = $row7['Fname']." ".$row7['Lname'];
 
-      		echo "<tr><td>{$student_name}</td><td>{$row_search['Student_id']}</td><td>{$row_search['Mob_no']}</td><td>{$hostel_name}</td><td>{$room_no}</td></tr>\n";
+      		echo "<tr><td>{$student_name}</td><td>{$row_search['Student_id']}</td><td>{$mess_name}</td><td>{$row_search['Message']}</td></tr>\n";
+
+   	   	  }
    	   }
-   }
    ?>
    </tbody>
   </table>
@@ -191,18 +188,18 @@ session_start();
 
 
 <div class="container">
-<h2 class="heading text-capitalize mb-sm-5 mb-4"> Rooms Allotted </h2>
+<h2 class="heading text-capitalize mb-sm-5 mb-4"> Applications Received </h2>
 <?php
-   $hostel_id = $_SESSION['hostel_id'];
-   $query1 = "SELECT * FROM Student where Hostel_id = '$hostel_id'";
+   $mess_id = $_SESSION['Mess_id'];
+     	   
+   $query1 = "SELECT * FROM Application_mess where Mess_id = '$mess_id' and Application_status = '1'";
    $result1 = mysqli_query($conn,$query1);
-   //select the hostel name from hostel table
-   $query6 = "SELECT * FROM Hostel WHERE Hostel_id = '$hostel_id'";
+
+   //select the mess name from mess table
+   $query6 = "SELECT * FROM Mess WHERE Mess_id = '$mess_id'";
    $result6 = mysqli_query($conn,$query6);
    $row6 = mysqli_fetch_assoc($result6);
-   $hostel_name = $row6['Hostel_name'];
-
-
+   $mess_name = $row6['Mess_name'];
 ?>
 
   <table class="table table-hover">
@@ -210,34 +207,93 @@ session_start();
       <tr>
         <th>Student Name</th>
         <th>Roll No</th>
-        <th>Contact Number</th>
-        <th>Hostel</th>
-        <th>Room Number</th>
+        <th>Mess</th>
+        <th>Message</th>
       </tr>
     </thead>
     <tbody>
     <?php
       if(mysqli_num_rows($result1)==0){
-         echo '<tr><td colspan="4">No Rows Returned</td></tr>';
+         echo '<tr><td colspan="4">Empty</td></tr>';
       }
       else{
       	while($row1 = mysqli_fetch_assoc($result1)){
-      		//get the room_no of the student from room_id in room table
-            $room_id = $row1['Room_id'];
-            $query7 = "SELECT * FROM Room WHERE Room_id = '$room_id'";
+      		//get the name of the student to display
+            $student_id = $row1['Student_id'];
+            $query7 = "SELECT * FROM Student WHERE Student_id = '$student_id'";
             $result7 = mysqli_query($conn,$query7);
             $row7 = mysqli_fetch_assoc($result7);
-            $room_no = $row7['Room_No'];
-            //student name
-            $student_name = $row1['Fname']." ".$row1['Lname'];
+            $student_name = $row7['Fname']." ".$row7['Lname'];
 
-      		echo "<tr><td>{$student_name}</td><td>{$row1['Student_id']}</td><td>{$row1['Mob_no']}</td><td>{$hostel_name}</td><td>{$room_no}</td></tr>\n";
+      		echo "<tr><td>{$student_name}</td><td>{$row1['Student_id']}</td><td>{$mess_name}</td><td>{$row1['Message']}</td></tr>\n";
       	}
       }
     ?>
     </tbody>
   </table>
 </div>
+<section class="contact py-5">
+	<div class="container">
+			<div class="mail_grid_w3l">
+				<form action="allocate_mess_card.php" method="post">
+					<div class="row">
+							<input type="submit" value="Allocate" name="submitallo">
+					</div>
+				</form>
+			</div>
+	</div>
+</section>
+<?php
+if(isset($_POST['submitallo'])){
+   $result1 = mysqli_query($conn,$query1);
+
+   while($row1 = mysqli_fetch_assoc($result1)){
+         //find the minimum mess number
+     $query2 = "SELECT * FROM Mess_Allocation where Mess_card_No = (SELECT MIN(Mess_card_No) FROM Mess_Allocation where Allocated = '0' and Mess_id = '$mess_id')";
+     $result2 = mysqli_query($conn,$query2);
+     /*echo "<script type='text/javascript'>alert('<?php echo $mess_card_no ?>')</script>";*/
+     if(!$result2){
+     	   echo "<script type='text/javascript'>alert('Mess not available 1st')</script>";
+     	   exit();
+     }
+     $row2 = mysqli_fetch_assoc($result2);
+     $mess_card_no = $row2['Mess_card_No'];
+
+     $student_id = $row1['Student_id'];
+     $query3 = "UPDATE Application_mess SET Application_status = '0',Mess_card_No = '$mess_card_no' WHERE Student_id = '$student_id'";
+     $result3 = mysqli_query($conn,$query3);
+     /*echo "<script type='text/javascript'>alert('<?php echo $result3; ?>')</script>";*/
+     if($result3){
+     	$mess_card_id = $row2['Mess_card_id'];
+     	$query4 = "UPDATE Student SET Mess_id = '$mess_id',Mess_card_id = '$mess_card_id' WHERE Student_id = '$student_id'";
+     	$result4 = mysqli_query($conn,$query4);
+     	if($result4){
+     		$query5 = "UPDATE Mess_Allocation SET Allocated = '1' where Mess_card_No = '$mess_card_no' and Mess_id='$mess_id'";
+     		$result5 = mysqli_query($conn,$query5);
+
+     		if($result5){
+     			$query6 = "UPDATE Mess SET Vacancy=Vacancy - 1 where Mess_id='$mess_id'";
+     			$result6 = mysqli_query($conn,$query6);
+     		    echo "<script type='text/javascript'>alert('mess Allocated Successfully')</script>";
+     		}
+     	}
+     	else{
+     		echo "<script type='text/javascript'>alert('Failed to allocate mess')</script>";
+     	}
+     }
+     else{
+     	
+     		$query8 = "DELETE from Application_mess where Application_status=1 and Mess_id='$mess_id'";
+     		$result8 = mysqli_query($conn,$query8);
+     		if($result8)
+     		echo "<script type='text/javascript'>alert('Mess is Full please apply for other mess')</script>";
+     	
+     }
+
+   }
+
+}
+?>
 <br>
 <br>
 <br>
@@ -246,9 +302,10 @@ session_start();
 <footer class="py-5">
 	<div class="container py-md-5">
 		<div class="footer-logo mb-5 text-center">
-			<a class="navbar-brand" href="http://www.nitk.ac.in/" target="_blank">NITK <span class="display"> SURATHKAL</span></a>
+			<a class="navbar-brand"  href="http://www.nitk.ac.in/" target="_blank" >NITK<span class="display"> SURATHKAL</span></a>
 		</div>
 		<div class="footer-grid">
+
 			<div class="list-footer">
 				<ul class="footer-nav text-center">
 					<li>
@@ -257,6 +314,7 @@ session_start();
 					<li>
 						<a href="allocate_room.php">Allocate</a>
 					</li>
+
 					<li>
 						<a href="admin/manager_profile.php">Profile</a>
 					</li>

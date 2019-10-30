@@ -62,6 +62,10 @@ session_start();
 						<li class="nav-item">
 						<a class="nav-link" href="allocate_room.php">Allocate Rooms</a>
 					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="allocate_mess_card.php">Allocate Mess</a>
+					</li>
 					<li class="dropdown nav-item">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Rooms
 							<b class="caret"></b>
@@ -70,11 +74,25 @@ session_start();
 							<li>
 								<a href="allocated_rooms.php">Allocated Rooms</a>
 							</li>
+
 							<li>
 								<a href="empty_rooms.php">Empty Rooms</a>
 							</li>
 							<li>
 								<a href="vacate_rooms.php">Vacate Rooms</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown nav-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Mess
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu agile_short_dropdown">
+							<li>
+								<a href="allocated_mess_card.php">Allocated Mess</a>
+							</li>
+							<li>
+								<a href="vacate_mess_card.php">Vacate Mess</a>
 							</li>
 						</ul>
 					</li>

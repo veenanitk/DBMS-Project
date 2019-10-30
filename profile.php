@@ -79,19 +79,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="nav-item">
 							<a class="nav-link" href="payment_form.php">Payment</a>
 						</li>
+						<li class="nav-ite">
+							<a class="nav-link" href="services_mess.php">Mess</a>
+						</li>
 
 						<li class="dropdown nav-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
+							<!-- <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><?php echo $_SESSION['roll']; ?>
 								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu agile_short_dropdown">
-								<li>
+							</a> -->
+							<!-- <ul class="dropdown-menu agile_short_dropdown"> -->
+								<!-- <li>
 									<a href="profile.php">My Profile</a>
-								</li>
+								</li> -->
 								<li>
 									<a href="includes/logout.inc.php" class="nav-link">Logout</a>
 								</li>
-							</ul>
+							<!-- </ul> -->
 						</li>
 					</ul>
 				</div>
@@ -190,7 +193,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													}
 												}
 												else {
-													echo "<script type='text/javascript'>alert('Foreign Key Error-hostenName!!')</script>";
+													$Paymentstatus='Not Done';
+													// echo "<script type='text/javascript'>alert('Foreign Key Error-hostenName!!')</script>";
 												}
 											}
 										 ?>
